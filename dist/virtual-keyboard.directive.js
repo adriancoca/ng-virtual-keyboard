@@ -27,7 +27,8 @@ var NgVirtualKeyboardDirective = /** @class */ (function () {
         }, 0);
     };
     NgVirtualKeyboardDirective.prototype.onFocus = function () {
-        this.openKeyboard();
+        // disable open on focus, wrong behaviour when used with  https://material.angular.io/components/autocomplete/overview
+        //this.openKeyboard();
     };
     NgVirtualKeyboardDirective.prototype.onClick = function () {
         this.openKeyboard();
