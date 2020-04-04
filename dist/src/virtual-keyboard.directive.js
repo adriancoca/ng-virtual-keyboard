@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var material_1 = require("@angular/material");
+var dialog_1 = require("@angular/material/dialog");
 var virtual_keyboard_component_1 = require("./virtual-keyboard.component");
 var layouts_1 = require("./layouts");
+var i0 = require("@angular/core");
+var i1 = require("@angular/material/dialog");
 var NgVirtualKeyboardDirective = /** @class */ (function () {
     /**
      * Constructor of the class.
@@ -27,8 +29,7 @@ var NgVirtualKeyboardDirective = /** @class */ (function () {
         }, 0);
     };
     NgVirtualKeyboardDirective.prototype.onFocus = function () {
-        // disable open on focus, wrong behaviour when used with  https://material.angular.io/components/autocomplete/overview
-        //this.openKeyboard();
+        this.openKeyboard();
     };
     NgVirtualKeyboardDirective.prototype.onClick = function () {
         this.openKeyboard();
@@ -103,26 +104,38 @@ var NgVirtualKeyboardDirective = /** @class */ (function () {
     NgVirtualKeyboardDirective.prototype.getType = function () {
         return this.type ? this.type : this.element.nativeElement.type;
     };
-    NgVirtualKeyboardDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[ng-virtual-keyboard]'
-                },] },
-    ];
-    /** @nocollapse */
-    NgVirtualKeyboardDirective.ctorParameters = function () { return [
-        { type: core_1.ElementRef },
-        { type: material_1.MatDialog }
-    ]; };
-    NgVirtualKeyboardDirective.propDecorators = {
-        layout: [{ type: core_1.Input, args: ['ng-virtual-keyboard-layout',] }],
-        placeholder: [{ type: core_1.Input, args: ['ng-virtual-keyboard-placeholder',] }],
-        type: [{ type: core_1.Input, args: ['ng-virtual-keyboard-type',] }],
-        onWindowBlur: [{ type: core_1.HostListener, args: ['window:blur',] }],
-        onWindowFocus: [{ type: core_1.HostListener, args: ['window:focus',] }],
-        onFocus: [{ type: core_1.HostListener, args: ['focus',] }],
-        onClick: [{ type: core_1.HostListener, args: ['click',] }]
-    };
+    NgVirtualKeyboardDirective.ɵfac = function NgVirtualKeyboardDirective_Factory(t) { return new (t || NgVirtualKeyboardDirective)(i0.ɵɵdirectiveInject(i0.ElementRef), i0.ɵɵdirectiveInject(i1.MatDialog)); };
+    NgVirtualKeyboardDirective.ɵdir = i0.ɵɵdefineDirective({ type: NgVirtualKeyboardDirective, selectors: [["", "ng-virtual-keyboard", ""]], hostBindings: function NgVirtualKeyboardDirective_HostBindings(rf, ctx) { if (rf & 1) {
+            i0.ɵɵlistener("blur", function NgVirtualKeyboardDirective_blur_HostBindingHandler() { return ctx.onWindowBlur(); }, false, i0.ɵɵresolveWindow)("focus", function NgVirtualKeyboardDirective_focus_HostBindingHandler() { return ctx.onWindowFocus(); }, false, i0.ɵɵresolveWindow)("focus", function NgVirtualKeyboardDirective_focus_HostBindingHandler() { return ctx.onFocus(); })("click", function NgVirtualKeyboardDirective_click_HostBindingHandler() { return ctx.onClick(); });
+        } }, inputs: { layout: ["ng-virtual-keyboard-layout", "layout"], placeholder: ["ng-virtual-keyboard-placeholder", "placeholder"], type: ["ng-virtual-keyboard-type", "type"] } });
     return NgVirtualKeyboardDirective;
 }());
 exports.NgVirtualKeyboardDirective = NgVirtualKeyboardDirective;
+/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(NgVirtualKeyboardDirective, [{
+        type: core_1.Directive,
+        args: [{
+                selector: '[ng-virtual-keyboard]'
+            }]
+    }], function () { return [{ type: i0.ElementRef }, { type: i1.MatDialog }]; }, { layout: [{
+            type: core_1.Input,
+            args: ['ng-virtual-keyboard-layout']
+        }], placeholder: [{
+            type: core_1.Input,
+            args: ['ng-virtual-keyboard-placeholder']
+        }], type: [{
+            type: core_1.Input,
+            args: ['ng-virtual-keyboard-type']
+        }], onWindowBlur: [{
+            type: core_1.HostListener,
+            args: ['window:blur']
+        }], onWindowFocus: [{
+            type: core_1.HostListener,
+            args: ['window:focus']
+        }], onFocus: [{
+            type: core_1.HostListener,
+            args: ['focus']
+        }], onClick: [{
+            type: core_1.HostListener,
+            args: ['click']
+        }] }); })();
 //# sourceMappingURL=virtual-keyboard.directive.js.map

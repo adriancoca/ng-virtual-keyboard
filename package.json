@@ -6,13 +6,14 @@
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "NODE_ENV=dev webpack-dev-server --progress --profile --port 4200 --host 0.0.0.0 --content-base app --config app/webpack.config --open",
     "lint": "tslint 'src/**/*.ts' 'app/**/*.ts'",
     "clean": "rimraf dist",
-    "build": "npm-run-all --serial clean build:ngc build:umd build:app build:gh-pages",
+    "build": "npm-run-all --serial clean build:ngc ",
     "build:ngc": "ngc -p tsconfig.ngc.json",
-    "build:umd": "NODE_ENV=prod webpack --progress --profile",
-    "build:app": "NODE_ENV=prod webpack --progress --profile --config app/webpack.config",
+    "build:umd": "webpack --progress --profile",
+    "build:app": "webpack --progress --profile --config app/webpack.config",
     "build:gh-pages": "cp app/index.html docs && cp app/favicon.png docs && cp -r app/build docs"
   },
   "repository": {
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/protacon/ng-virtual-keyboard#readme",
   "prefer-stable": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^9.1.0",
     "@angular/animations": "9.1.0",
     "@angular/cdk": "9.2.0",
     "@angular/flex-layout": "9.0.0-beta.29",
@@ -37,16 +39,16 @@
     "hammerjs": "^2.0.8"
   },
   "devDependencies": {
-    "@angular/common": "^7.0.3",
-    "@angular/compiler": "^7.0.3",
-    "@angular/compiler-cli": "^7.0.3",
-    "@angular/core": "^7.0.3",
-    "@angular/forms": "^7.0.3",
+    "@angular/common": "^9.1.0",
+    "@angular/compiler": "^9.1.0",
+    "@angular/compiler-cli": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
     "@angular/http": "^7.0.3",
-    "@angular/platform-browser": "^7.0.3",
-    "@angular/platform-browser-dynamic": "^7.0.3",
-    "@angular/router": "^7.0.3",
-    "@types/node": "^7.0.12",
+    "@angular/platform-browser": "^9.1.0",
+    "@angular/platform-browser-dynamic": "^9.1.0",
+    "@angular/router": "^9.1.0",
+    "@types/node": "^7.10.9",
     "angular2-template-loader": "^0.6.0",
     "codelyzer": "^2.0.1",
     "core-js": "^2.4.1",
@@ -56,7 +58,7 @@
     "npm-run-all": "^4.0.2",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.5.5",
     "rxjs-compat": "^6.0.0",
     "sass-loader": "^6.0.3",
     "strip-loader": "^0.1.2",
@@ -66,6 +68,6 @@
     "typescript": "^3.1.6",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.10.3"
   }
 }

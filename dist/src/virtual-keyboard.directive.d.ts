@@ -1,6 +1,7 @@
 import { ElementRef } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { KeyboardLayout } from './layouts';
+import * as i0 from "@angular/core";
 export declare class NgVirtualKeyboardDirective {
     private element;
     private dialog;
@@ -42,4 +43,6 @@ export declare class NgVirtualKeyboardDirective {
      * @return {string}
      */
     private getType;
+    static ɵfac: i0.ɵɵFactoryDef<NgVirtualKeyboardDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NgVirtualKeyboardDirective, "[ng-virtual-keyboard]", never, { "layout": "ng-virtual-keyboard-layout"; "placeholder": "ng-virtual-keyboard-placeholder"; "type": "ng-virtual-keyboard-type"; }, {}, never>;
 }

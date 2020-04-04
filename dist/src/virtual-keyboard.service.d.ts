@@ -1,4 +1,5 @@
 import { ReplaySubject } from "rxjs/internal/ReplaySubject";
+import * as i0 from "@angular/core";
 export declare class VirtualKeyboardService {
     shift$: ReplaySubject<boolean>;
     capsLock$: ReplaySubject<boolean>;
@@ -35,4 +36,6 @@ export declare class VirtualKeyboardService {
      * Method to reset Shift and CapsLock values to default ones.
      */
     reset(): void;
+    static ɵfac: i0.ɵɵFactoryDef<VirtualKeyboardService, never>;
+    static ɵprov: i0.ɵɵInjectableDef<VirtualKeyboardService>;
 }

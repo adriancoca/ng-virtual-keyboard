@@ -1,5 +1,6 @@
 import { OnInit, EventEmitter } from '@angular/core';
 import { KeyPressInterface } from './key-press.interface';
+import * as i0 from "@angular/core";
 export declare class VirtualKeyboardKeyComponent implements OnInit {
     key: string;
     disabled: boolean;
@@ -33,4 +34,6 @@ export declare class VirtualKeyboardKeyComponent implements OnInit {
      *  2) Key is "Normal", append this key value to input
      */
     onKeyPress(): void;
+    static ɵfac: i0.ɵɵFactoryDef<VirtualKeyboardKeyComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<VirtualKeyboardKeyComponent, "virtual-keyboard-key", never, { "key": "key"; "disabled": "disabled"; }, { "keyPress": "keyPress"; }, never, never>;
 }
